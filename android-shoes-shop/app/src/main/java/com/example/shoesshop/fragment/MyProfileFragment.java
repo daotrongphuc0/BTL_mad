@@ -1,4 +1,4 @@
-package com.example.shoesshop.activity.fragment;
+package com.example.shoesshop.fragment;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -42,8 +42,6 @@ public class MyProfileFragment extends Fragment {
         if(user== null){
             return;
         }
-
-
         String name = user.getDisplayName();
         String email = user.getEmail();
         Uri photoUrl = user.getPhotoUrl();

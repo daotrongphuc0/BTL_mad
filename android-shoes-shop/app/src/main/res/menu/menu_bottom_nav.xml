@@ -4,14 +4,13 @@
     <item android:id="@+id/action_home"
         android:title="Trang chủ"
         android:icon="@drawable/ic_home" />
-
-    <item android:id="@+id/action_shoes"
-        android:title="Cửa hàng"
-        android:icon="@drawable/ic_store" />
-
     <item android:id="@+id/action_cart"
         android:title="Giỏ hàng"
         android:icon="@drawable/ic_cart" />
+
+    <item android:id="@+id/order"
+        android:title="Đơn hàng"
+        android:icon="@drawable/ic_truck_24" />
 
     <item android:id="@+id/action_user"
         android:title="Người dùng"

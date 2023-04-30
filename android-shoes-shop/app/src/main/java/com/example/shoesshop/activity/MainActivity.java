@@ -1,83 +1,84 @@
 package com.example.shoesshop.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.fragment.app.Fragment;
 
-import android.net.Uri;
+
 import android.os.Bundle;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.view.MenuItem;
 
-import com.bumptech.glide.Glide;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 import com.example.shoesshop.R;
-
-import com.example.shoesshop.activity.fragment.MyProfileFragment;
-import com.example.shoesshop.activity.user.UserFragment;
+import com.example.shoesshop.adapter.ViewPageAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    BottomNavigationView bottomNavigationView;
-    UserFragment userFragment = new UserFragment();
 
-    Fragment myProfileFragment ;
-
-    private ImageView imageAvata;
-    private TextView tvInfoEmail, tvInfoName,tvInfoNumber;
-    private FrameLayout frame_layout_user_info;
+    private BottomNavigationView navigationView;
+    private ViewPager viewPager;
 
 
-
-
-    public static final int FRAGMENT_MY_PROFILE = 4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_main);
-       // frame_layout_user_info= findViewById(R.layout.fragment_my_profile);
-        myProfileFragment = new MyProfileFragment();
-        bottomNavigationView = findViewById(R.id.bottom_nav);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, myProfileFragment).commit();
-        initUi();
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()){
-                case R.id.action_user:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, myProfileFragment).commit();
-                    return true;
+        viewPager =findViewById(R.id.viewPage);
+        navigationView= findViewById(R.id.navigation);
+        ViewPageAdapter adapter = new ViewPageAdapter(getSupportFragmentManager(),4);
+        viewPager.setAdapter(adapter);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
             }
-            return false;
+
+            @Override
+            public void onPageSelected(int position) {
+                switch (position){
+                    case 0: navigationView.getMenu().findItem(R.id.action_home).setCheckable(true);
+                        break;
+                    case 1: navigationView.getMenu().findItem(R.id.action_cart).setCheckable(true);
+                        break;
+                    case 2: navigationView.getMenu().findItem(R.id.order).setCheckable(true);
+                        break;
+                    case 3: navigationView.getMenu().findItem(R.id.action_user).setCheckable(true);
+                        break;
+
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
         });
-        showUserInfomation();
-    }
-    private void showUserInfomation(){
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if(user== null){
-            return;
-        }
+        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if(item.getItemId() == R.id.action_home){
+                    viewPager.setCurrentItem(0);
+                } else if (item.getItemId() == R.id.action_cart) {
+                    viewPager.setCurrentItem(1);
+                } else if (item.getItemId() == R.id.order) {
+                    viewPager.setCurrentItem(2);
+                }else{
+                    viewPager.setCurrentItem(3);
+                }
+//                switch (item.getItemId()){
+//                    case R.id.mHome:viewPager.setCurrentItem(0);
+//                    break;
+//                    case R.id.mNoti:viewPager.setCurrentItem(1);
+//                        break;
+//                    case R.id.mSearch:viewPager.setCurrentItem(2);
+//                        break;
+//                    case R.id.mCafe:viewPager.setCurrentItem(3);
+//                        break;
+//                }
 
+                return true;
+            }
+        });
 
-        String name = user.getDisplayName();
-        String email = user.getEmail();
-        Uri photoUrl = user.getPhotoUrl();
-        if(name ==null){
-            tvInfoName.setText("No name");
-        }else{
-            tvInfoName.setText(name);
-        }
-
-        tvInfoEmail.setText(email);
-        Glide.with(this).load(photoUrl).error(R.drawable.no_image_profile).into(imageAvata);
-    }
-    private void initUi() {
-
-        imageAvata = myProfileFragment.findViewById(R.id.imageInfoProfile);
-        tvInfoEmail = myProfileFragment.findViewById(R.id.tvInfoEmail);
-        tvInfoName = myProfileFragment.findViewById(R.id.tvInfoName);
-        tvInfoNumber = myProfileFragment.findViewById(R.id.tvInfoNumber);
     }
 }
