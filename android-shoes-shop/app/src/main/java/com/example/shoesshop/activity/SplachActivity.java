@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.example.shoesshop.R;
+import com.example.shoesshop.model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SplachActivity extends AppCompatActivity {
 
@@ -16,6 +19,8 @@ public class SplachActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splach);
+        
+
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
