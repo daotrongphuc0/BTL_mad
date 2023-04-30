@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 //                    case R.id.mCafe:viewPager.setCurrentItem(3);
 //                        break;
 //                }
-
+                System.out.println("sdfsf");
                 return true;
             }
         });
