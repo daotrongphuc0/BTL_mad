@@ -27,10 +27,10 @@ public class SplachActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splach);
-
-      ShoeDao SD = new ShoeDao();
-      Shoe shoe = new Shoe("Adidas Stansmith", "available", "Adidas", 1300000, 1100000, 4, 324);
-      SD.addShoe(shoe);
+//  demo add shoe
+//      ShoeDao SD = new ShoeDao();
+//      Shoe shoe = new Shoe("Adidas Stansmith", "available", "Adidas", 1300000, 1100000, 4, 324,"notyet");
+//      SD.addShoe(shoe);
 
 
         Handler handler = new Handler();

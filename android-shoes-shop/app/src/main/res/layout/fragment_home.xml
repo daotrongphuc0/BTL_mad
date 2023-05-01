@@ -110,12 +110,12 @@
 
         <!-- Phần tử khác trong RelativeLayout -->
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/special_offer_image"
-            tools:ignore="NotSibling" />
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/recycler_view"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/special_offer_image"-->
+<!--            tools:ignore="NotSibling" />-->
 
     </RelativeLayout>
 

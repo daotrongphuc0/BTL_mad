@@ -10,13 +10,17 @@ import androidx.appcompat.widget.SearchView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.shoesshop.R;
 import com.example.shoesshop.dao.UserDao;
 import com.example.shoesshop.databinding.FragmentHomeBinding;
+import com.example.shoesshop.model.Shoe;
 import com.example.shoesshop.model.User;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentHome extends Fragment {
@@ -38,7 +42,7 @@ public class FragmentHome extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Ánh xạ các view trong layout sử dụng binding
+        // demo find by phone Number
         UserDao userDao = new UserDao();
         userDao.findUserByPhoneNumber("0123120312", new UserDao.UserSingleCallback() {
             @Override
@@ -50,7 +54,10 @@ public class FragmentHome extends Fragment {
 
 
         });
+
         search();
+
+
     }
     public void search() {
         binding.searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
