@@ -1,13 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity">
+    <FrameLayout
+        android:id="@+id/container_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:id="@+id/avatarImageView"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:src="@drawable/aoi"
+        app:civ_border_width="2dp"
+        />
     <TextView
+        android:id="@+id/helloText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:text="Hello 🤚"
+        android:layout_toRightOf="@id/avatarImageView"
+        />
+    <TextView
+        android:id="@+id/nameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/helloText"
+
+        android:layout_toRightOf="@id/avatarImageView"
+        android:textStyle="bold"
+        />
+    <ImageView
+        android:id="@+id/bell"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/bell"
+        android:layout_toLeftOf="@id/heart"
+        android:layout_marginTop="15dp"
+        />
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/heart"
+        android:id="@+id/heart"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp"
+        />
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fragment Home"
-        android:textSize="30dp"
+        android:background="@drawable/search_view_border"
+        android:iconifiedByDefault="false"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/avatarImageView"
+        android:imeOptions="actionSearch"
+        android:queryHint="Search..." />
+    <TextView
+        android:id="@+id/special_offer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Special offer"
         android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginTop="50sp"/>
-</FrameLayout>
+        android:textSize="@dimen/_15sdp"
+        android:layout_below="@id/search_view"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="See all"
+        android:textStyle="bold"
+        android:layout_alignBaseline="@id/special_offer"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp"
+        android:textSize="@dimen/_10sdp"
+
+        />
+
+
+</RelativeLayout>
