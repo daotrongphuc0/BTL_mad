@@ -2,33 +2,78 @@ package com.example.shoesshop.model;
 
 public class User {
 
-    private int id;
 
+
+    private String firstName;
+    private String lastName;
+    private String address;
+    private String birth;
+    private String gender;
     private String email;
-    private String sdt;
-    private String hoVaTen;
     private String password;
-    private String id_phan_quyen;
+    private String phoneNumber;
+    private String image;
+    private String status;
 
 
-    public User(int id, String email, String sdt, String hoVaTen, String password, String id_phan_quyen) {
-        this.id = id;
-        this.email = email;
-        this.sdt = sdt;
-        this.hoVaTen = hoVaTen;
-        this.password = password;
-        this.id_phan_quyen = id_phan_quyen;
-    }
+
+
+
 
     public User() {
     }
 
-    public int getId() {
-        return id;
+    public User(String firstName, String lastName, String address, String birth, String gender, String email, String password, String phoneNumber, String image, String status) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.birth = birth;
+        this.gender = gender;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.image = image;
+        this.status = status;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getBirth() {
+        return birth;
+    }
+
+    public void setBirth(String birth) {
+        this.birth = birth;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getEmail() {
@@ -39,22 +84,6 @@ public class User {
         this.email = email;
     }
 
-    public String getSdt() {
-        return sdt;
-    }
-
-    public void setSdt(String sdt) {
-        this.sdt = sdt;
-    }
-
-    public String getHoVaTen() {
-        return hoVaTen;
-    }
-
-    public void setHoVaTen(String hoVaTen) {
-        this.hoVaTen = hoVaTen;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -63,11 +92,27 @@ public class User {
         this.password = password;
     }
 
-    public String getId_phan_quyen() {
-        return id_phan_quyen;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setId_phan_quyen(String id_phan_quyen) {
-        this.id_phan_quyen = id_phan_quyen;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
