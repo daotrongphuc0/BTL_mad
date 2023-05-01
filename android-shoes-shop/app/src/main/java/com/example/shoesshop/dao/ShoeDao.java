@@ -19,7 +19,7 @@ import java.util.List;
 public class ShoeDao {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("shoes");
-    public void addUser(Shoe shoe){
+    public void addShoe(Shoe shoe){
         myRef.push().setValue(shoe);
     }
 }

@@ -12,7 +12,7 @@
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPage"
-            android:layout_width="match_parent"
+            android:layout_width="427dp"
             android:layout_height="match_parent" />
     </FrameLayout>
     <de.hdodenhof.circleimageview.CircleImageView
@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/search_view_border"
         android:iconifiedByDefault="false"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:layout_below="@id/avatarImageView"
         android:imeOptions="actionSearch"
         android:queryHint="Search..." />
@@ -76,12 +76,13 @@
         android:layout_height="wrap_content"
         android:text="Special offer"
         android:textStyle="bold"
-        android:textSize="@dimen/_15sdp"
+        android:textSize="@dimen/_20sdp"
         android:layout_below="@id/search_view"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="15dp"
         />
     <TextView
+        android:id="@+id/special_offer_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="See all"
@@ -89,9 +90,35 @@
         android:layout_alignBaseline="@id/special_offer"
         android:layout_alignParentRight="true"
         android:layout_marginRight="15dp"
-        android:textSize="@dimen/_10sdp"
+        android:textSize="@dimen/_15sdp"
 
         />
+
+    <ImageView
+        android:id="@+id/stansmith"
+        android:layout_width="361dp"
+        android:layout_height="171dp"
+        android:layout_below="@id/special_offer"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_corner"
+        android:clipToOutline="true"
+        android:src="@drawable/giay3" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Phần tử khác trong RelativeLayout -->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/special_offer_image"
+            tools:ignore="NotSibling" />
+
+    </RelativeLayout>
+
 
 
 </RelativeLayout>
