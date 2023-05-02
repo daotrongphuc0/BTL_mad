@@ -22,4 +22,60 @@ public class BrandDao {
     public void addBrand(Brand brand){
         myRef.push().setValue(brand);
     }
+    public interface BrandCallback {
+        void onSuccess(List<Brand> brandList);
+        void onFailure(Exception e);
+    }
+    public void getAll(final BrandCallback callback) {
+        final List<Brand> brandList = new ArrayList<>();
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                brandList.clear();
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Brand brand = snapshot.getValue(Brand.class);
+                    brandList.add(brand);
+                }
+
+                callback.onSuccess(brandList);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.w("BrandDao", "loadBrands:onCancelled", databaseError.toException());
+                callback.onFailure(databaseError.toException());
+            }
+        });
+    }
+
+    
+    public void findByName(final String name, final BrandCallback callback) {
+        final List<Brand> brandList = new ArrayList<>();
+
+        Query query = myRef.orderByChild("name").equalTo(name);
+
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                brandList.clear();
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Brand brand = snapshot.getValue(Brand.class);
+                    brandList.add(brand);
+                }
+
+                callback.onSuccess(brandList);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.w("BrandDao", "loadBrands:onCancelled", databaseError.toException());
+                callback.onFailure(databaseError.toException());
+            }
+        });
+    }
+
+
 }
