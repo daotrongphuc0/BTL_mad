@@ -1,5 +1,6 @@
 package com.example.shoesshop.fragment;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -11,18 +12,23 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.shoesshop.R;
+import com.example.shoesshop.activity.ChaneInfoActivity;
+import com.example.shoesshop.dao.UserDao;
+import com.example.shoesshop.model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MyProfileFragment extends Fragment {
 
     private ImageView imageAvata;
-    private TextView tvInfoEmail, tvInfoName,tvInfoNumber;
+    private TextView tvInfoEmail, tvInfoName,tvInfoNumber,tvGender,tvDate;
+    private Button btn;
 
     @Nullable
     @Override
@@ -32,7 +38,14 @@ public class MyProfileFragment extends Fragment {
         tvInfoEmail = view.findViewById(R.id.tvInfoEmail);
         tvInfoName = view.findViewById(R.id.tvInfoName);
         tvInfoNumber = view.findViewById(R.id.tvInfoNumber);
+        tvGender = view.findViewById(R.id.tvGender);
+        tvDate = view.findViewById(R.id.tvDate);
+        btn = view.findViewById(R.id.buttonEditInfo);
         showUserInfomation();
+        btn.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), ChaneInfoActivity.class);
+            startActivity(intent);
+        });
         return view;
     }
 
@@ -42,16 +55,30 @@ public class MyProfileFragment extends Fragment {
         if(user== null){
             return;
         }
-        String name = user.getDisplayName();
+        UserDao userDao = new UserDao();
+
+        userDao.findByEmail(user.getEmail(), new UserDao.UserCallback() {
+
+            @Override
+            public void onSuccess(User user) {
+                String fullName  = user.getFirstName()+" "+user.getLastName();
+                tvInfoName.setText(fullName);
+                tvGender.setText(user.getGender());
+                tvDate.setText(user.getBirth());
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+
+            }
+        });
+
         String email = user.getEmail();
         Uri photoUrl = user.getPhotoUrl();
-        if(name ==null){
-            tvInfoName.setText("No name");
-        }else{
-            tvInfoName.setText(name);
-        }
+
 
         tvInfoEmail.setText(email);
+
         Glide.with(this).load(photoUrl).error(R.drawable.no_image_profile).into(imageAvata);
     }
 

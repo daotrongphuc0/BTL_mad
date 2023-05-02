@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="216dp"
+        android:layout_height="128dp"
+        app:srcCompat="@drawable/giay4"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="44dp" />
+
+    <TextView
+        android:id="@+id/nameText"
+        android:layout_marginTop="15dp"
+        android:layout_width="96dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="36dp"
+        android:layout_toRightOf="@id/imageView"
+        android:text="TextView" />
+    <TextView
+        android:id="@+id/colorText"
+        android:layout_width="56dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="36dp"
+        android:layout_below="@id/nameText"
+        android:layout_toRightOf="@id/imageView"
+        android:text="TextView" />
+    <TextView
+        android:id="@+id/sizeText"
+        android:layout_width="56dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="16dp"
+        android:layout_toRightOf="@id/colorText"
+        android:layout_alignBaseline="@id/colorText"
+        android:text="TextView" />
+    <TextView
+        android:id="@+id/priceText"
+        android:layout_width="76dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="36dp"
+        android:layout_below="@id/colorText"
+        android:layout_toRightOf="@id/imageView"
+        android:text="TextView" />
+    <Button
+        android:id="@+id/btn_plus"
+        android:layout_width="26dp"
+        android:layout_height="36dp"
+        android:text="+"
+        android:layout_below="@id/sizeText"
+        android:layout_toRightOf="@id/priceText"
+        />
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="26dp"
+        android:layout_height="36dp"
+
+        android:layout_below="@id/sizeText"
+        android:layout_toRightOf="@id/btn_plus"
+
+        />
+    <Button
+        android:id="@+id/btn_unplus"
+        android:layout_width="26dp"
+        android:layout_height="36dp"
+        android:text="-"
+        android:layout_below="@id/sizeText"
+        android:layout_toRightOf="@id/number"
+        />
+</RelativeLayout>
