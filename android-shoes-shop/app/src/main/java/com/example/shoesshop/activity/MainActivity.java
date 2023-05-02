@@ -10,10 +10,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 import com.example.shoesshop.R;
 import com.example.shoesshop.adapter.ViewPageAdapter;
+import com.example.shoesshop.databinding.ActivityMainBinding;
+import com.example.shoesshop.databinding.ActivitySignUpBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ActivityMainBinding binding;
 
     private BottomNavigationView navigationView;
     private ViewPager viewPager;
@@ -22,7 +25,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+
+        setContentView(binding.getRoot());
+
         viewPager =findViewById(R.id.viewPage);
         navigationView= findViewById(R.id.navigation);
         ViewPageAdapter adapter = new ViewPageAdapter(getSupportFragmentManager(),4);

@@ -1,21 +1,30 @@
 package com.example.shoesshop.model;
 
 public class Shoe {
-    private String name,status,brandId;
+    private String name,status,brandName,image;
     private float price,discountPrice,averageRate;
     private int soldNumber;
 
-    public Shoe(String name, String status, String brandId, float price, float discountPrice, float averageRate, int soldNumber) {
+    public Shoe(String name, String status, String brandName, float price, float discountPrice, float averageRate, int soldNumber,String image) {
         this.name = name;
         this.status = status;
-        this.brandId = brandId;
+        this.brandName = brandName;
         this.price = price;
         this.discountPrice = discountPrice;
         this.averageRate = averageRate;
         this.soldNumber = soldNumber;
+        this.image = image;
     }
     public Shoe(){
 
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getName() {
@@ -34,12 +43,12 @@ public class Shoe {
         this.status = status;
     }
 
-    public String getBrandId() {
-        return brandId;
+    public String getBrandName() {
+        return brandName;
     }
 
-    public void setBrandId(String brandId) {
-        this.brandId = brandId;
+    public void setBrandName(String brandId) {
+        this.brandName = brandId;
     }
 
     public float getPrice() {

@@ -5,13 +5,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 
 import com.example.shoesshop.R;
+import com.example.shoesshop.dao.BrandDao;
+import com.example.shoesshop.dao.ShoeDao;
+import com.example.shoesshop.dao.UserDao;
+import com.example.shoesshop.databinding.ActivityMainBinding;
+import com.example.shoesshop.databinding.ActivitySignUpBinding;
+import com.example.shoesshop.model.Brand;
+import com.example.shoesshop.model.Shoe;
 import com.example.shoesshop.model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.ktx.Firebase;
+
+import java.util.List;
 
 public class SplachActivity extends AppCompatActivity {
 
@@ -19,6 +30,13 @@ public class SplachActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splach);
+//  demo add shoe
+//      ShoeDao SD = new ShoeDao();
+//      Shoe shoe = new Shoe("Adidas Stansmith", "available", "Adidas", 1300000, 1100000, 4, 324,"notyet");
+//      SD.addShoe(shoe);
+
+
+
 
 
         Handler handler = new Handler();
