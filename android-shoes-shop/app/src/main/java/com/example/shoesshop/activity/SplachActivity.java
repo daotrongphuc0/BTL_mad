@@ -37,6 +37,8 @@ public class SplachActivity extends AppCompatActivity {
 
 
 
+
+
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
