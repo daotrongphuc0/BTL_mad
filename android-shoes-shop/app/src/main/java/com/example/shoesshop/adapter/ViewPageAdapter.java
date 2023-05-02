@@ -8,7 +8,6 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.example.shoesshop.fragment.FragmentCart;
 import com.example.shoesshop.fragment.FragmentHome;
-import com.example.shoesshop.fragment.FragmentNotification;
 import com.example.shoesshop.fragment.FragmentOder;
 import com.example.shoesshop.fragment.MyProfileFragment;
 
