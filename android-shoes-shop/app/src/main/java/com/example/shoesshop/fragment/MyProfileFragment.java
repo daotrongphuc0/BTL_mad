@@ -11,18 +11,21 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.shoesshop.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MyProfileFragment extends Fragment {
+public class MyProfileFragment extends Fragment implements View.OnClickListener{
 
     private ImageView imageAvata;
     private TextView tvInfoEmail, tvInfoName,tvInfoNumber;
+    private Button btDangXuat;
 
     @Nullable
     @Override
@@ -32,6 +35,8 @@ public class MyProfileFragment extends Fragment {
         tvInfoEmail = view.findViewById(R.id.tvInfoEmail);
         tvInfoName = view.findViewById(R.id.tvInfoName);
         tvInfoNumber = view.findViewById(R.id.tvInfoNumber);
+        btDangXuat =  view.findViewById(R.id.btdangxuat);
+
         showUserInfomation();
         return view;
     }
@@ -56,6 +61,8 @@ public class MyProfileFragment extends Fragment {
     }
 
 
+    @Override
+    public void onClick(View view) {
 
-
+    }
 }
