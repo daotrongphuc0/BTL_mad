@@ -62,10 +62,11 @@ public class CartDao {
                             cart.setUser(user);
                             Log.e("UserCallback", "onSuccess");
 
-                            // Gọi callback nếu cả hai callback đều đã được gọi
-//                            if (cart.getDetailShoe() != null) {
-//                            }
-                                                          callback.onSuccess(cart);
+                           //  Gọi callback nếu cả hai callback đều đã được gọi
+                            if (cart.getDetailShoe() != null) {
+                                  callback.onSuccess(cart);
+                            }
+                                                         
 
                         }
 

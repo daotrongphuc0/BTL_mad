@@ -37,21 +37,21 @@ public class SplachActivity extends AppCompatActivity {
 //      ShoeDao SD = new ShoeDao();
 //      Shoe shoe = new Shoe("Adidas Stansmith", "available", "Adidas", 1300000, 1100000, 4, 324,"notyet");
 //      SD.addShoe(shoe);
-        Cart cart = new Cart();
-        cart.setQuantity(5);
-        CartDao CD = new CartDao();
-        UserDao UD = new UserDao();
-        CD.findById("-NUW9LnJhfEo0mMON6lt", new CartDao.CartCallback() {
-            @Override
-            public void onSuccess(Cart cart) {
-                Log.e("xin chao", cart.getUser().getEmail());
-            }
-
-            @Override
-            public void onFailure(Exception e) {
-
-            }
-        });
+//        Cart cart = new Cart();
+//        cart.setQuantity(5);
+//        CartDao CD = new CartDao();
+//        UserDao UD = new UserDao();
+//        CD.findById("-NUW9LnJhfEo0mMON6lt", new CartDao.CartCallback() {
+//            @Override
+//            public void onSuccess(Cart cart) {
+//                Log.e("xin chao", cart.getUser().getEmail());
+//            }
+//
+//            @Override
+//            public void onFailure(Exception e) {
+//
+//            }
+//        });
 
 
 
