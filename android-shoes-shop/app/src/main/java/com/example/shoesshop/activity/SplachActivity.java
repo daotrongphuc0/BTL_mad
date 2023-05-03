@@ -34,7 +34,11 @@ public class SplachActivity extends AppCompatActivity {
 //      ShoeDao SD = new ShoeDao();
 //      Shoe shoe = new Shoe("Adidas Stansmith", "available", "Adidas", 1300000, 1100000, 4, 324,"notyet");
 //      SD.addShoe(shoe);
+        // Write a message to the database
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("message");
 
+        myRef.setValue("Hello, World!");
 
 
 
