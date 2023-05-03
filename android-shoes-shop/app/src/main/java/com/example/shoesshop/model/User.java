@@ -15,15 +15,11 @@ public class User {
     private String image;
     private String status;
 
+    private String cartId;
+    public User(){
 
-
-
-
-
-    public User() {
     }
-
-    public User(String firstName, String lastName, String address, String birth, String gender, String email, String password, String phoneNumber, String image, String status) {
+    public User(String firstName, String lastName, String address, String birth, String gender, String email, String password, String phoneNumber, String image, String status, String cartId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -34,6 +30,7 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.image = image;
         this.status = status;
+        this.cartId = cartId;
     }
 
     public String getFirstName() {
@@ -114,5 +111,13 @@ public class User {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getCartId() {
+        return cartId;
+    }
+
+    public void setCartId(String cartId) {
+        this.cartId = cartId;
     }
 }

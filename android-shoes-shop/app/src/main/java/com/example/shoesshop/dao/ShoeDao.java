@@ -23,11 +23,15 @@ public class ShoeDao {
     public void addShoe(Shoe shoe){
         myRef.push().setValue(shoe);
     }
-    public interface ShoeCallback {
+    public interface ShoesCallback {
         void onSuccess(List<Shoe> shoeList);
         void onFailure(Exception e);
     }
-    public void getAll(final ShoeCallback callback) {
+    public interface ShoeCallback {
+        void onSuccess(Shoe shoe );
+        void onFailure(Exception e);
+    }
+    public void getAll(final ShoesCallback callback) {
         final List<Shoe> shoeList = new ArrayList<>();
 
         // Sử dụng phương thức ValueEventListener để lắng nghe dữ liệu từ Firebase
@@ -53,8 +57,8 @@ public class ShoeDao {
             }
         });
     }
-    public void findByBrandName(final String brandName, final ShoeCallback callback) {
-        getAll(new ShoeCallback() {
+    public void findByBrandName(final String brandName, final ShoesCallback callback) {
+        getAll(new ShoesCallback() {
             @Override
             public void onSuccess(List<Shoe> shoeList) {
                 List<Shoe> result = new ArrayList<>();
@@ -76,7 +80,7 @@ public class ShoeDao {
             }
         });
     }
-    public void findById(final String id, final ShoeCallback callback) {
+    public void findById(final String id, final ShoesCallback callback) {
         myRef.child(id).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -95,6 +99,34 @@ public class ShoeDao {
             }
         });
     }
+    public void findByDetailShoeId(final String detailShoeId, final ShoeCallback callback) {
+        Query query = myRef.orderByChild("detailShoeId").equalTo(detailShoeId);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Shoe shoe = null;
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    shoe = snapshot.getValue(Shoe.class);
+                    break; // chỉ cần lấy giày đầu tiên có detailShoeId tương ứng
+                }
+
+                if (shoe != null) {
+                    callback.onSuccess(shoe);
+                } else {
+                    callback.onFailure(new Exception("Không tìm thấy giày với detailShoeId = " + detailShoeId));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.w("ShoeDao", "findByDetailShoeId:onCancelled", databaseError.toException());
+                callback.onFailure(databaseError.toException());
+            }
+        });
+    }
+
+
+
 
 
 

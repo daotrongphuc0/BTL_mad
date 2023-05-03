@@ -10,9 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -84,7 +81,6 @@
                 android:textColor="@color/color_main"
                 android:textSize="@dimen/_16sdp"/>
 
-<<<<<<< HEAD
             <TextView
                 android:id="@+id/tvInfoNumber"
                 android:text="012345678"
@@ -99,50 +95,34 @@
                 android:layout_marginRight="20dp"
                 android:textColor="@color/color_main"
                 android:textSize="@dimen/_16sdp"/>
-=======
-        <TextView
-            android:id="@+id/tvInfoNumber"
-            android:text="012345678"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:background="@drawable/background_input"
-            android:gravity="center_vertical"
-            android:paddingEnd="@dimen/_16sdp"
-            android:paddingStart="@dimen/_16sdp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textColor="@color/color_main"
-            android:textSize="@dimen/_16sdp"/>
-        <TextView
-            android:id="@+id/tvDate"
-            android:text="012345678"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:background="@drawable/background_input"
-            android:gravity="center_vertical"
-            android:paddingEnd="@dimen/_16sdp"
-            android:paddingStart="@dimen/_16sdp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textColor="@color/color_main"
-            android:textSize="@dimen/_16sdp"/>
-        <TextView
-            android:id="@+id/tvGender"
-            android:text="012345678"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:background="@drawable/background_input"
-            android:gravity="center_vertical"
-            android:paddingEnd="@dimen/_16sdp"
-            android:paddingStart="@dimen/_16sdp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textColor="@color/color_main"
-            android:textSize="@dimen/_16sdp"/>
->>>>>>> 18f5ee50a301e729aaf3e81ac00c9c66a3d6d390
+            <TextView
+                android:id="@+id/tvDate"
+                android:text="012345678"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@drawable/background_input"
+                android:gravity="center_vertical"
+                android:paddingEnd="@dimen/_16sdp"
+                android:paddingStart="@dimen/_16sdp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="@color/color_main"
+                android:textSize="@dimen/_16sdp"/>
+            <TextView
+                android:id="@+id/tvGender"
+                android:text="012345678"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@drawable/background_input"
+                android:gravity="center_vertical"
+                android:paddingEnd="@dimen/_16sdp"
+                android:paddingStart="@dimen/_16sdp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="@color/color_main"
+                android:textSize="@dimen/_16sdp"/>
 
 
             <FrameLayout
@@ -165,25 +145,26 @@
                     app:cornerRadius="@dimen/_8sdp"/>
 
             </FrameLayout>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btdangxuat"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_marginLeft="@dimen/_60sdp"
-                android:layout_marginRight="@dimen/_60sdp"
-                android:layout_height="@dimen/_50sdp"
-                android:text="Đăng xuất"
-                android:layout_marginTop="20dp"
-                android:textColor="@color/white"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                app:cornerRadius="@dimen/_8sdp"/>
-<<<<<<< HEAD
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:animateLayoutChanges="true">
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonLogoutInfo"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="@dimen/_60sdp"
+                    android:layout_marginRight="@dimen/_60sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:text="Đăng xuất"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    app:cornerRadius="@dimen/_8sdp"/>
+
+            </FrameLayout>
         </LinearLayout>
-=======
-        </FrameLayout>
-    </LinearLayout>
->>>>>>> 18f5ee50a301e729aaf3e81ac00c9c66a3d6d390
     </ScrollView>
 </FrameLayout>

@@ -18,26 +18,18 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.shoesshop.R;
-<<<<<<< HEAD
-import com.google.android.gms.tasks.OnCompleteListener;
-=======
 import com.example.shoesshop.activity.ChaneInfoActivity;
+import com.example.shoesshop.activity.SignInActivity;
 import com.example.shoesshop.dao.UserDao;
 import com.example.shoesshop.model.User;
->>>>>>> 18f5ee50a301e729aaf3e81ac00c9c66a3d6d390
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MyProfileFragment extends Fragment implements View.OnClickListener{
+public class MyProfileFragment extends Fragment {
 
     private ImageView imageAvata;
-<<<<<<< HEAD
-    private TextView tvInfoEmail, tvInfoName,tvInfoNumber;
-    private Button btDangXuat;
-=======
     private TextView tvInfoEmail, tvInfoName,tvInfoNumber,tvGender,tvDate;
-    private Button btn;
->>>>>>> 18f5ee50a301e729aaf3e81ac00c9c66a3d6d390
+    private Button btn,btnLogout;
 
     @Nullable
     @Override
@@ -47,14 +39,10 @@ public class MyProfileFragment extends Fragment implements View.OnClickListener{
         tvInfoEmail = view.findViewById(R.id.tvInfoEmail);
         tvInfoName = view.findViewById(R.id.tvInfoName);
         tvInfoNumber = view.findViewById(R.id.tvInfoNumber);
-<<<<<<< HEAD
-        btDangXuat =  view.findViewById(R.id.btdangxuat);
-
-=======
         tvGender = view.findViewById(R.id.tvGender);
         tvDate = view.findViewById(R.id.tvDate);
         btn = view.findViewById(R.id.buttonEditInfo);
->>>>>>> 18f5ee50a301e729aaf3e81ac00c9c66a3d6d390
+        btnLogout = view.findViewById(R.id.buttonLogoutInfo);
         showUserInfomation();
         btn.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), ChaneInfoActivity.class);
@@ -92,13 +80,26 @@ public class MyProfileFragment extends Fragment implements View.OnClickListener{
 
 
         tvInfoEmail.setText(email);
-
+        logout();
         Glide.with(this).load(photoUrl).error(R.drawable.no_image_profile).into(imageAvata);
     }
+    private void logout(){
+        // Khởi tạo FirebaseAuth
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
-
-    @Override
-    public void onClick(View view) {
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Đăng xuất khỏi Firebase Authentication
+                mAuth.signOut();
+                // Thực hiện các hành động cần thiết khi đăng xuất thành công, ví dụ chuyển đến màn hình đăng nhập.
+                Intent i = new Intent(getActivity(), SignInActivity.class);
+                startActivity(i);
+            }
+        });
 
     }
+
+
+
 }

@@ -6,14 +6,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.shoesshop.R;
 import com.example.shoesshop.dao.BrandDao;
+import com.example.shoesshop.dao.CartDao;
 import com.example.shoesshop.dao.ShoeDao;
 import com.example.shoesshop.dao.UserDao;
 import com.example.shoesshop.databinding.ActivityMainBinding;
 import com.example.shoesshop.databinding.ActivitySignUpBinding;
 import com.example.shoesshop.model.Brand;
+import com.example.shoesshop.model.Cart;
 import com.example.shoesshop.model.Shoe;
 import com.example.shoesshop.model.User;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,11 +37,21 @@ public class SplachActivity extends AppCompatActivity {
 //      ShoeDao SD = new ShoeDao();
 //      Shoe shoe = new Shoe("Adidas Stansmith", "available", "Adidas", 1300000, 1100000, 4, 324,"notyet");
 //      SD.addShoe(shoe);
-        // Write a message to the database
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
+        Cart cart = new Cart();
+        cart.setQuantity(5);
+        CartDao CD = new CartDao();
+        UserDao UD = new UserDao();
+        CD.findById("-NUW9LnJhfEo0mMON6lt", new CartDao.CartCallback() {
+            @Override
+            public void onSuccess(Cart cart) {
+                Log.e("xin chao", cart.getUser().getEmail());
+            }
 
-        myRef.setValue("Hello, World!");
+            @Override
+            public void onFailure(Exception e) {
+
+            }
+        });
 
 
 

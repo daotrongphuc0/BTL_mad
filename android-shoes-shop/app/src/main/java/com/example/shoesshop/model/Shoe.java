@@ -1,11 +1,11 @@
 package com.example.shoesshop.model;
 
 public class Shoe {
-    private String name,status,brandName,image;
+    private String name,status,brandName,image,ShoeDetailId;
     private float price,discountPrice,averageRate;
     private int soldNumber;
 
-    public Shoe(String name, String status, String brandName, float price, float discountPrice, float averageRate, int soldNumber,String image) {
+    public Shoe(String name, String status, String brandName, float price, float discountPrice, float averageRate, int soldNumber,String image,String shoeDetailId) {
         this.name = name;
         this.status = status;
         this.brandName = brandName;
@@ -14,9 +14,18 @@ public class Shoe {
         this.averageRate = averageRate;
         this.soldNumber = soldNumber;
         this.image = image;
+        this.ShoeDetailId  = shoeDetailId;
     }
     public Shoe(){
 
+    }
+
+    public String getShoeDetailId() {
+        return ShoeDetailId;
+    }
+
+    public void setShoeDetailId(String shoeDetailId) {
+        ShoeDetailId = shoeDetailId;
     }
 
     public String getImage() {

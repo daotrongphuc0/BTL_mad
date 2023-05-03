@@ -2,12 +2,13 @@ package com.example.shoesshop.model;
 
 public class Cart {
     private int quantity;
-    private String userId,detailShoeId;
+    private User user;
+    private DetailShoe detailShoe;
 
-    public Cart(int quantity, String userId, String detailShoeId) {
+    public Cart(int quantity, User user, DetailShoe detailShoe) {
         this.quantity = quantity;
-        this.userId = userId;
-        this.detailShoeId = detailShoeId;
+        this.user = user;
+        this.detailShoe = detailShoe;
     }
     public Cart(){
 
@@ -21,19 +22,19 @@ public class Cart {
         this.quantity = quantity;
     }
 
-    public String getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public String getDetailShoeId() {
-        return detailShoeId;
+    public DetailShoe getDetailShoe() {
+        return detailShoe;
     }
 
-    public void setDetailShoeId(String detailShoeId) {
-        this.detailShoeId = detailShoeId;
+    public void setDetailShoe(DetailShoe detailShoe) {
+        this.detailShoe = detailShoe;
     }
 }
