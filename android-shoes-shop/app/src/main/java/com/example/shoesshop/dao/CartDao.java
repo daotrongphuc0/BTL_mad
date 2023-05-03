@@ -66,7 +66,7 @@ public class CartDao {
                             if (cart.getDetailShoe() != null) {
                                   callback.onSuccess(cart);
                             }
-                                                         
+
 
                         }
 
