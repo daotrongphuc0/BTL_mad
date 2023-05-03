@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     android:id="@+id/frame_layout_user_info"
     tools:context=".fragment.MyProfileFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -81,6 +84,7 @@
                 android:textColor="@color/color_main"
                 android:textSize="@dimen/_16sdp"/>
 
+<<<<<<< HEAD
             <TextView
                 android:id="@+id/tvInfoNumber"
                 android:text="012345678"
@@ -95,6 +99,50 @@
                 android:layout_marginRight="20dp"
                 android:textColor="@color/color_main"
                 android:textSize="@dimen/_16sdp"/>
+=======
+        <TextView
+            android:id="@+id/tvInfoNumber"
+            android:text="012345678"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@drawable/background_input"
+            android:gravity="center_vertical"
+            android:paddingEnd="@dimen/_16sdp"
+            android:paddingStart="@dimen/_16sdp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/color_main"
+            android:textSize="@dimen/_16sdp"/>
+        <TextView
+            android:id="@+id/tvDate"
+            android:text="012345678"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@drawable/background_input"
+            android:gravity="center_vertical"
+            android:paddingEnd="@dimen/_16sdp"
+            android:paddingStart="@dimen/_16sdp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/color_main"
+            android:textSize="@dimen/_16sdp"/>
+        <TextView
+            android:id="@+id/tvGender"
+            android:text="012345678"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@drawable/background_input"
+            android:gravity="center_vertical"
+            android:paddingEnd="@dimen/_16sdp"
+            android:paddingStart="@dimen/_16sdp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/color_main"
+            android:textSize="@dimen/_16sdp"/>
+>>>>>>> 18f5ee50a301e729aaf3e81ac00c9c66a3d6d390
 
 
             <FrameLayout
@@ -130,7 +178,12 @@
                 android:textSize="15dp"
                 android:textStyle="bold"
                 app:cornerRadius="@dimen/_8sdp"/>
+<<<<<<< HEAD
 
         </LinearLayout>
+=======
+        </FrameLayout>
+    </LinearLayout>
+>>>>>>> 18f5ee50a301e729aaf3e81ac00c9c66a3d6d390
     </ScrollView>
 </FrameLayout>

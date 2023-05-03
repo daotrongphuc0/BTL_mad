@@ -18,6 +18,8 @@ import com.example.shoesshop.dao.UserDao;
 import com.example.shoesshop.databinding.FragmentHomeBinding;
 import com.example.shoesshop.model.Shoe;
 import com.example.shoesshop.model.User;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 import java.util.ArrayList;
@@ -42,17 +44,21 @@ public class FragmentHome extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // demo find by phone Number
+
         UserDao userDao = new UserDao();
-        userDao.findUserByPhoneNumber("0123120312", new UserDao.UserSingleCallback() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        userDao.findByEmail(user.getEmail(), new UserDao.UserCallback() {
+
             @Override
-            public void onCallback(User user) {
-                if (user != null) {
-                    binding.nameText.setText(user.getLastName());
-                }
+            public void onSuccess(User user) {
+                binding.nameText.setText(user.getLastName());
             }
 
+            @Override
+            public void onFailure(Exception e) {
 
+            }
         });
 
         search();

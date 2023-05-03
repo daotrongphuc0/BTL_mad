@@ -57,6 +57,11 @@ public class SplachActivity extends AppCompatActivity {
         }else{
             //da login
             intent = new Intent(this, MainActivity.class);
+            FirebaseAuth mAuth = FirebaseAuth.getInstance();
+            FirebaseUser currentUser = mAuth.getCurrentUser();
+            String userEmail = currentUser.getEmail();
+            Log.e("email",userEmail);
+
         }
         startActivity(intent);
         finish();

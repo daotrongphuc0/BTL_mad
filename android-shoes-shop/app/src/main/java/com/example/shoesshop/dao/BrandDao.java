@@ -50,7 +50,7 @@ public class BrandDao {
         });
     }
 
-    
+
     public void findByName(final String name, final BrandCallback callback) {
         final List<Brand> brandList = new ArrayList<>();
 
