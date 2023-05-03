@@ -31,6 +31,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginLeft="10dp"
         android:text="Hello 🤚"
+        android:text="Hello 👉"
         android:layout_toRightOf="@id/avatarImageView"
         />
     <TextView
